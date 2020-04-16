@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="appp">
     <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <h1>{{ msg }}545445</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -19,18 +19,18 @@
   <div v-for="(data,index) in dataList" :key="index">
     <keywordsinput :_key="index" v-model="dataList[index]" @change="setKeywords" :maxLen="18"></keywordsinput>
   </div>
-    
-    <!-- <keywordsinput :_key="2" :keyWords="dataList2" @change="setKeywords" :maxLen="18"></keywordsinput> -->
-    <keywordsinput  @change="setKeywords" v-model="dataList3"></keywordsinput>
+
+    <keywordsinput  @change="setKeywords" v-model="dataList2"></keywordsinput>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'appp',
   data () {
     return {
       dataList:[['111','222','333'],['111a','222b','333c']],
+      dataList2:[],
       dataList3:"aaa,bbb,ccc",
       maxLen:18,
       msg: 'Welcome to Your Vue.js App'
@@ -42,7 +42,10 @@ export default {
     },
     initFormat() {
       if (!Array.isArray(this.dataList3)) {
-        this.dataList3 = !!this.dataList3? this.dataList3.split(',') : [];
+        this.dataList2 = !!this.dataList3? this.dataList3.split(',') : [];
+        console.log(this.dataList3,'11')
+        console.log(this.dataList3.split(','),'22')
+        console.log(this.dataList2,'33')
       }
     }
   },
@@ -57,7 +60,7 @@ export default {
 }
 </style>
 
-<style lang="scss">
+<style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

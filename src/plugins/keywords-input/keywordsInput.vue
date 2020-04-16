@@ -18,23 +18,33 @@ export default {
         }
     },
     props:["value","maxLen","_key"], //'_key用于一个页面中同时使用多个该组件; maxLen最大输入字符数，keyWords代表数据必传'
+    watch:{
+        list:{
+            handler(val){
+                this.$emit('change',val);
+            }
+        }
+    },
+    computed:{
+        list(){
+            return this.value
+        }
+    },
     methods:{
         focusInput() {
             document.getElementsByClassName('keywordsTag_'+this._key)[0].getElementsByTagName("input")[0].focus();
         },
         addTag(e) {
             if (!this.addTagInput) return;
-            this.value.push(this.addTagInput);
+            this.list.push(this.addTagInput);
             this.addTagInput = "";
-            this.$emit('change',this.value);
         },
         inputBox(en) {
-            this.value.forEach((e, i) => {
+            this.list.forEach((e, i) => {
                 if (e == en) {
-                    this.value.splice(i, 1);
+                    this.list.splice(i, 1);
                 }
             });
-            this.$emit('change',this.value);
         }
     },
 }

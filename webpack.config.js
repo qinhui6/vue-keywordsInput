@@ -2,12 +2,13 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
-  //entry: './src/plugins/index.js',
+  //entry: './src/main.js',
+  entry: './src/plugins/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-keywordsInput.js'
+    //filename:'build.js',
+    filename: 'vue-keywords.js'
   },
   module: {
     rules: [
